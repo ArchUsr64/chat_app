@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chat App</title>
+</head>
+
+<body>
+  <form>
+    <div>
+      <label>Email:<br>
+        <input type="email" name="mail" placeholder="Email"></label>
+      <br>
+      <input type="text" name="message" placeholder="Message">
+    </div>
+    <br>
+    <label>Anonymize submission<input type="checkbox" name="anonymize"></label>
+    <br>
+    <input type="submit">
+  </form>
+  <table id="display">
+    <tr>
+      <caption>
+        Messages:
+      </caption>
+    <tr>
+      <th>Email</th>
+      <th>Message</th>
+    </tr>
+  </table>
+  <script>
+    //!injection_point
+    //An array of objects 'data' with fields 'mail' and 'message' gets injected above
+    let table = document.getElementById("display");
+    for (let i = 0; i < data.length; i++) {
+      let table_row = document.createElement("tr");
+      let mail = document.createElement("td");
+      mail.innerHTML = data[i].mail;
+      let message = document.createElement("td");
+      message.innerHTML = data[i].message;
+      table_row.appendChild(mail);
+      table_row.appendChild(message);
+      table.appendChild(table_row);
+    }
+  </script>
+</body>
+
+</html>
